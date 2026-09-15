@@ -138,6 +138,21 @@
     return /^(https?:)?\/\//i.test(u || '') || /^data:image\//i.test(u || '');
   }
 
+  // 把相对 / 协议相对路径补全为绝对地址（基于站点根 ORIGIN）。
+  // 案例正文里的图片常写成 /_static/... 这种站点根相对路径，
+  // 导出成独立 HTML/MD 后浏览器会按 file:// 解析而打不开，必须补全为
+  // https://support.sangfor.com.cn/_static/... 才能正常显示。
+  function toAbs(url) {
+    if (!url) return url;
+    url = String(url).trim();
+    if (/^https?:\/\//i.test(url)) return url;        // 已是绝对地址
+    if (/^\/\//i.test(url)) return 'https:' + url;     // 协议相对 //host → https://host
+    if (/^data:/i.test(url) || /^blob:/i.test(url)) return url; // 内嵌资源
+    if (/^[a-z][a-z0-9+.-]*:/i.test(url)) return url;  // 其它 scheme（mailto:、javascript: 等）保持原样
+    if (url.charAt(0) === '/') return ORIGIN + url;    // 站点根相对 /_static/...
+    return ORIGIN + '/' + url;                         // 其它相对路径
+  }
+
   /* ---------------------------------------------------------------- 内联渲染 */
   function inline(node, ctx) {
     let out = '';
@@ -150,7 +165,7 @@
       const tag = n.tagName.toUpperCase();
       if (tag === 'BR') { out += '  \n'; return; }
       if (tag === 'IMG') {
-        const src = n.getAttribute('src') || '';
+        const src = toAbs(n.getAttribute('src') || '');
         const alt = n.getAttribute('alt') || '截图';
         if (isGoodUrl(src)) {
           ctx.images.push(src);
@@ -260,7 +275,7 @@
         return;
       }
       if (tag === 'IMG') {
-        const src = n.getAttribute('src') || '';
+        const src = toAbs(n.getAttribute('src') || '');
         const alt = n.getAttribute('alt') || '截图';
         if (isGoodUrl(src)) { ctx.images.push(src); out.push(`![${alt}](${src})`); }
         else if (src) out.push(`[图片:${src}]`);
@@ -443,6 +458,8 @@
     (root.querySelectorAll('[contenteditable]') || []).forEach((n) => n.removeAttribute('contenteditable'));
     (root.querySelectorAll('input,script,style') || []).forEach((n) => n.remove());
     (root.querySelectorAll('img') || []).forEach((img) => {
+      const s = img.getAttribute('src');
+      if (s) img.setAttribute('src', toAbs(s)); // 相对路径补全为绝对地址，否则本地打开 HTML 图片失效
       img.setAttribute('style', 'max-width:100%;height:auto;border:1px solid #e3e6ec;border-radius:6px;margin:6px 0');
       img.setAttribute('loading', 'lazy');
     });
@@ -1418,9 +1435,19 @@ render();
   /* ---------------------------------------------------- 图片下载与内嵌（可选） */
   // 把图片下载成 data: URL 内嵌进 HTML/Markdown，导出的文件可离线阅读。
   async function embedImages(rows) {
+    // 先把正文里的相对图片路径补全为绝对地址：否则既无法下载，下面的字符串替换也匹配不到
+    rows.forEach((r) => {
+      if (r.detail_html) {
+        r.detail_html = r.detail_html.replace(
+          /(<img\b[^>]*?)\ssrc="([^"]*)"/gi,
+          (m, pre, url) => `${pre} src="${toAbs(url)}"`
+        );
+      }
+    });
     const urls = [];
     rows.forEach((r) => (r.images || []).forEach((u) => {
-      if (urls.indexOf(u) < 0 && /^https?:\/\//i.test(u)) urls.push(u);
+      const a = toAbs(u);
+      if (urls.indexOf(a) < 0 && /^https?:\/\//i.test(a)) urls.push(a);
     }));
     if (!urls.length) {
       log('正文无外链图片，跳过内嵌');
