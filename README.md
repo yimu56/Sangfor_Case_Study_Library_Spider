@@ -118,4 +118,4 @@ CSV / JSON 导出的结构化字段包括：`案例ID`、`源ID`、`标题`、`�
 
 ## License
 
-[MIT](./LICENSE) © 2026 WorkBuddy
+[MIT](./LICENSE) © 2026 yimu56

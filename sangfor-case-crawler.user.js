@@ -4,7 +4,7 @@
 // @namespace    https://github.com/scriptscat
 // @version      1.2.0
 // @description  批量抓取 support.sangfor.com.cn 案例库：支持按产品线/模块/版本/关键词筛选，并发翻页抓取列表与正文，还原「问题描述/根因/解决方案」章节结构与图片，可导出 单文件HTML / Markdown / CSV / JSON。基于浏览器登录态运行。
-// @author       WorkBuddy
+// @author       yimu56
 // @license      MIT
 // @match        https://support.sangfor.com.cn/*
 // @icon         https://support.sangfor.com.cn/static/assets/img/favicon.ico
