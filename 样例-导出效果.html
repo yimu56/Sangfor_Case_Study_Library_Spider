@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>深信服案例导出 - 行为管理AC</title>
+<html lang="zh-CN" data-page-node-id="qGp0R2rZnthjfM6cJIGt0d"><head data-page-node-id="9qC2NcQWwqoZZGn6a2j9Qe"><meta charset="utf-8" data-page-node-id="EjyCH5PM0eOgKj6GXatZ1R">
+<meta name="viewport" content="width=device-width,initial-scale=1" data-page-node-id="emWSgolCzXaFREn1p1qcFf">
+<title>深信服案例导出 - 样例</title>
 <style>
 :root{--bd:#e3e6ec;--fg:#1f2329;--mu:#6b7280;--ac:#1a6fd4}
 *{box-sizing:border-box}
@@ -27,7 +27,9 @@ nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:26px}
 nav.toc li{font-size:13px;break-inside:avoid;margin:2px 0}
 nav.toc a{color:var(--ac);text-decoration:none}
 nav.toc a:hover{text-decoration:underline}
-article.case{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:18px 24px;margin-bottom:14px}
+nav.toc .tocmore{color:var(--mu);font-size:12px;margin-top:6px;padding-left:2px}
+article.case{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:18px 24px;margin-bottom:14px;
+  content-visibility:auto;contain-intrinsic-size:auto 480px}
 article.case h2{font-size:17px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--ac);line-height:1.5}
 .meta{color:var(--mu);font-size:12.5px;margin-bottom:12px;padding:8px 12px;background:#f8f9fb;border-radius:6px}
 .meta a{color:var(--ac);text-decoration:none}
@@ -40,36 +42,42 @@ article.case h2{font-size:17px;margin:0 0 10px;padding-bottom:8px;border-bottom:
 .body img{max-width:100%;border:1px solid var(--bd);border-radius:6px;margin:6px 0;background:#fafbfc;min-height:24px}
 mark{background:#ffe9a8;padding:0 2px;border-radius:2px}
 .empty{text-align:center;color:var(--mu);padding:60px 0}
-@media print{.bar,nav.toc{display:none}body{background:#fff}article.case{break-inside:avoid;border:none;padding:0 0 12px}}
+@media print{.bar,nav.toc{display:none}body{background:#fff}
+  article.case{break-inside:avoid;border:none;padding:0 0 12px;content-visibility:visible}
+  .body img{page-break-inside:avoid}}
 </style></head>
-<body>
-<header>
-  <h1>深信服案例导出 - 行为管理AC</h1>
-  <div class="sub">共 12 条 ｜ 导出时间 2026/9/14 23:32:29</div>
+<body data-page-node-id="hTJwLio3wHKuGh1cGKH7Ed">
+<header data-page-node-id="vUDy7VWYGVRgEDC2D5tEeC">
+  <h1 data-page-node-id="hQJJfjIrPjAA6GEl0QCmhl">深信服案例导出 - 样例</h1>
+  <div class="sub" data-page-node-id="uxUyon9oBanZEKSwz7MRPF">共 12 条 ｜ 重建示例 ｜ 2 条含配图</div>
 </header>
-<div class="bar">
-  <input type="search" id="q" placeholder="搜索标题 / 产品线 / 模块…" oninput="onSearch(this.value)">
-  <button onclick="go(1)" id="b-first">« 首页</button>
-  <button onclick="go(st.page-1)" id="b-prev">‹ 上一页</button>
-  <button onclick="go(st.page+1)" id="b-next">下一页 ›</button>
-  <button onclick="go(pages())" id="b-last">末页 »</button>
-  <select onchange="setSize(this.value)" id="sel-size">
-    <option value="10">10 条/页</option>
-    <option value="20" selected>20 条/页</option>
-    <option value="50">50 条/页</option>
-    <option value="100">100 条/页</option>
+<div class="bar" data-page-node-id="QAszDfTD32CUc4JyCbCJlE">
+  <input type="search" id="q" placeholder="搜索标题 / 产品线 / 模块…" oninput="onSearch(this.value)" data-page-node-id="p4NgrOrzhU5GCdbLW45fO7">
+  <button onclick="go(1)" id="b-first" data-page-node-id="RZcNTg1WeP70ntpb2OkQe6">« 首页</button>
+  <button onclick="go(st.page-1)" id="b-prev" data-page-node-id="lUQ9PMfjwojUObXLaSRU7u">‹ 上一页</button>
+  <button onclick="go(st.page+1)" id="b-next" data-page-node-id="RZOvajZAHChbHFhA4BB0SA">下一页 ›</button>
+  <button onclick="go(pages())" id="b-last" data-page-node-id="t6Hy5VCJ7bXSXa9fVsxBe4">末页 »</button>
+  <select onchange="setSize(this.value)" id="sel-size" data-page-node-id="yBLtPVqLW2rqHExGxNwGPQ">
+    <option value="10" data-page-node-id="K9bmk9Ci2AU4xwXkmi7rjb">10 条/页</option>
+    <option value="20" selected data-page-node-id="VXC2tfxS9tUSVmJ0phBYDN">20 条/页</option>
+    <option value="50" data-page-node-id="5BPL3TrRyhxeQPc3NPl9TH">50 条/页</option>
+    <option value="100" data-page-node-id="atwZfRwKnfzz2UJ1abjOKl">100 条/页</option>
   </select>
-  <button onclick="expandAll()" id="b-all">展开全部（便于打印）</button>
-  <span class="info" id="info"></span>
+  <button onclick="toggleAll()" id="b-all" data-page-node-id="QnHkEPHcGVSGYMZwWFJTSm">展开全部（便于打印）</button>
+  <span class="info" id="info" data-page-node-id="RPRHyncgEAl3k8FRIMG32k"></span>
 </div>
-<main>
-  <nav class="toc" id="toc"></nav>
-  <div id="list"></div>
+<main data-page-node-id="nFNEJaW0e2Zo7l7PsWqj3z">
+  <nav class="toc" id="toc" data-page-node-id="FZ8GOl0o2oCxhuh7Lq1wzv"></nav>
+  <div id="list" data-page-node-id="lCdGRE0aa0wdVrpKpaiFIY"></div>
 </main>
 <script id="sfc-data" type="application/json">[{"t":"【AC】因零信任资源网段包含AC网关地址，导致登录零信任后准入客户端自动登出，两客户端互斥","p":"行为管理AC","m":"密码认证","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 23:03:38","id":"2:48211","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=48211&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>终端同时安装AC准入客户端和零信任客户端，登录零信任后准入客户端自动登出并弹出认证页面，两客户端互斥。根因是零信任资源中配置的10.xx/16网段包含AC网关地址10.xx，零信任客户端引流该网段，导致准入客户端无法连接AC服务器而自动登出。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>准入客户端登录后，零信任客户端自动退出，两个客户端只能同时在线一个；登录零信任平台后，认证助手自动登出，导致本地服务器网络中断。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.47<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：通用<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>在AC日志中心查询该账号的登录/注销日志，确认是否存在注销原因记录。<ul>\n<li>命令/路径：打开【日志中心】-【日志查询】-【登录/注销日志】<\/li>\n<li>预期结果：可看到该账号的注销日志及原因。<\/li>\n<li>判断依据：查询无该账号注销记录，排除AC侧主动注销。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>查看AC准入客户端配置中网关地址的设置。<ul>\n<li>命令/路径：打开【接入管理】-【准入客户端配置】<\/li>\n<li>预期结果：确认准入客户端连接AC的网关地址。<\/li>\n<li>判断依据：配置指定网关地址，主IP为10.xx，即AC网关地址。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>测试登录零信任前后访问AC网关地址10.xx的连通性。<ul>\n<li>命令/路径：在终端命令行执行 ping 10.xx<\/li>\n<li>预期结果：登录零信任前后均可正常ping通，则非引流问题；登录后无法ping通则疑似引流。<\/li>\n<li>判断依据：登录零信任前ping通，登录后ping超时，判定零信任客户端引流该地址。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>查看零信任客户端工作台中的资源列表，检查是否存在包含AC网关地址的网段。<ul>\n<li>命令/路径：【第三方操作：以零信任平台实际界面为准】零信任客户端工作台资源列表<\/li>\n<li>预期结果：确认资源列表中是否存在10.xx/16或包含10.xx的网段。<\/li>\n<li>判断依据：分组下配置资源网段10.xx/16，包含AC网关地址10.xx。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"5\">\n<li>结合连通性测试和资源列表，确认根因为零信任资源引流。<ul>\n<li>命令/路径：综合分析<\/li>\n<li>预期结果：确认零信任登录后引流10.xx/16网段流量，导致AC准入客户端无法连接AC服务器。<\/li>\n<li>判断依据：零信任登录后ping 10.xx失败，资源列表确认该地址在引流网段内，AC准入客户端因无法连接AC而自动登出。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>零信任资源中配置的10.xx/16网段包含AC准入客户端网关地址10.xx，登录零信任后客户端引流该网段，AC准入客户端无法连接AC，自动登出并进入认证页面。工作台资源列表已确认该地址在引流网段内，实测登录零信任前可访问10.xx，登录后无法访问。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：需要零信任平台管理员配合修改资源授权范围，并评估业务影响。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>联系零信任管理员，将AC网关地址10.xx（或10.xx/16网段）从该账号资源权限中移除，确保准入客户端连接AC的流量不被引流。<ul>\n<li>影响说明：修改后，该用户可能无法通过零信任访问10.xx/16网段内的其他资源，需提前评估业务影响并告知用户。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>重新测试：断开零信任连接，登录AC准入客户端确认连接正常；再登录零信任客户端，确认两客户端可同时在线且准入客户端不自动登出。<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：登录零信任后访问10.xx正常；AC准入客户端与零信任客户端可同时在线，不再互斥；已确认问题处理完成。<\/li>\n<li>操作影响：移除零信任资源中的10.xx/16网段后，该用户账号将无法通过零信任访问该网段内的其他服务器资源，需评估是否有业务依赖。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>此问题属于零信任资源授权范围过大导致，非AC产品或准入客户端本身缺陷。建议在零信任平台资源授权策略中，遵循最小权限原则，仅授权用户实际需要访问的网段，避免将管理地址等关键基础设施地址包含在内。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0},{"t":"【AC】CNC机台不响应AC主动探测数据包，导致IP管理功能无法识别终端IP","p":"行为管理AC","m":"终端识别","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 23:03:18","id":"2:48556","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=48556&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC 13.0.120全网监控IP管理功能中，部分CNC机台终端联网后IP地址池未显示对应终端IP，因终端不响应AC的SMB/NMAP/SNMP等主动探测数据包。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC全网监控IP管理功能异常，部分CNC机台终端联网后，IP管理中的IP地址池未显示对应终端IP。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.120<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：通用<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>检查全网终端识别的启用状态和已配置监控网段，确认是否包含故障终端所在的172.xx/24网段。<ul>\n<li>命令/路径：打开【全网监控】-【全网终端监控】-【发现设置】-【终端识别设置】<\/li>\n<li>预期结果：终端识别功能已启用，监控网段包含该终端IP所在网段。<\/li>\n<li>判断依据：配置网段仅172.xx/24-172.xx/24与172.xx/24，未含172.xx/24。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>检查终端扫描设置和SNMP配置，确认扫描网段是否包含172.xx/24网段。<ul>\n<li>命令/路径：打开【全网监控】-【全网终端监控】-【发现设置】-【终端扫描设置】<\/li>\n<li>预期结果：终端扫描已启用，扫描网段包含故障终端IP所在网段。<\/li>\n<li>判断依据：终端扫描设置中扫描网段未含172.xx/24；SNMP配置存在public团体名。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>查询跨三层MAC识别配置及IP/MAC列表，确认终端IP是否能被识别到MAC地址。<ul>\n<li>命令/路径：打开【接入管理】-【接入认证】-【跨三层取MAC】<\/li>\n<li>预期结果：可查询到该终端IP对应的MAC地址。<\/li>\n<li>判断依据：跨三层MAC地址列表按172.xx过滤可查询到MAC 00-e0-bc-69-db-38，表明可获取该终端MAC。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>在AC上抓包，确认终端是否存在经过AC的上网流量。<ul>\n<li>命令/路径：打开【系统管理】-【系统诊断】-【抓包工具】，设置过滤条件为终端IP地址进行抓包。<\/li>\n<li>预期结果：终端有经过AC的流量（可见数据包）。<\/li>\n<li>判断依据：AC抓包无该终端报文，说明流量未经过AC或未主动向AC发包。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"5\">\n<li>分析AC主动识别流程，判断CNC机台是否能被扫描发现。<ul>\n<li>命令/路径：基于AC主动识别原理，AC主动扫描流程需依次完成SNMP探测、主机发现、SMB信息探测和NMAP侦测，每一步均需终端响应相应协议才有正常发现终端。<\/li>\n<li>预期结果：确认主动探测依赖终端响应SMB/NMAP/SNMP等协议。<\/li>\n<li>判断依据：CNC为工业设备，仅用IP互传文件，通常不响应SMB/NMAP等探测，不满足扫描发现条件。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>CNC机台不响应主动探测，流量未经过AC或无可识别特征，导致AC主动扫描流程不完整，IP管理无法识别并显示该终端。AC扫描需终端依次响应SNMP探测、主机发现、SMB探测与NMAP侦测；CNC仅以IP互传文件，常用探测无法获取设备信息，仅获MAC地址不足以发现终端。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认终端能正常联网并能被Ping通；已确认AC的终端识别和跨三层MAC配置正常。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>解释AC IP管理识别原理：终端响应SNMP/SMB/NMAP主动探测且流量经过AC时，方能显示。<ul>\n<li>影响说明：无操作影响，仅为解释说明。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>说明CNC机台类终端通常不响应探测，属设备特性，AC无法主动扫描发现。<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>建议在终端识别配置中增加对应网段172.xx/24，并在终端流量经AC时被动识别终端。<ul>\n<li>影响说明：增加网段后AC会尝试扫描该网段，但CNC机台仍可能不响应，不影响现有功能。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>确认问题已解释清楚，无需操作，工单进入观察状态。<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：已理解并接受AC识别原理，问题处于观察状态，无需操作。<\/li>\n<li>操作影响：AC无法识别不响应主动探测的终端（如CNC机台），IP管理不显示该类终端，可通过其他方式管理这些设备。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC的IP管理功能依赖终端主动扫描和流量识别，对于不响应探测的工业设备（如CNC机台）无法发现。建议客户通过其他方式（如交换机ARP表、第三方IPAM工具）管理这些终端的IP地址。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0},{"t":"【AC】控制台登录不成功","p":"行为管理AC","m":"控制台异常","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 23:01:05","id":"2:47760","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=47760&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">控制台登录不成功<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>ERR_CONNECTION_RESET: 无法访问此页面，已重置连接。访问地址：<a href=\"https://<\">https://&lt;<\/a>AC管理IP&gt;<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 12.0.22<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：通用<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>使用端口扫描工具扫描AC设备IP，确认HTTPS管理端口监听状态<ul>\n<li>命令/路径：使用MobaXterm的Network Scan工具扫描AC设备IP，端口范围1-65535（或直接扫描443端口）<\/li>\n<li>预期结果：扫描结果显示443端口处于listening状态<\/li>\n<li>判断依据：扫描结果显示Port #443 (https): listening<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>使用现代浏览器（如Chrome/Edge）访问AC管理HTTPS地址，测试管理页面是否可打开<ul>\n<li>命令/路径：在浏览器地址栏输入<a href=\"https://<\">https://&lt;<\/a>AC管理IP&gt;<\/li>\n<li>预期结果：能够打开AC Web管理登录页面<\/li>\n<li>判断依据：访问时出现“已重置连接、无法访问此页面”（ERR_CONNECTION_RESET）<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>改用IE浏览器访问同一HTTPS地址，验证浏览器兼容性猜测<ul>\n<li>命令/路径：在IE浏览器地址栏输入<a href=\"https://<\">https://&lt;<\/a>AC管理IP&gt;<\/li>\n<li>预期结果：IE浏览器可正常显示AC上网行为管理系统登录页面<\/li>\n<li>判断依据：IE浏览器成功打开AC登录页面，输入账号密码可正常登录<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC设备为老版本，Web管理界面仅兼容IE内核，现代浏览器（如Edge/Chrome）访问HTTPS管理地址时连接被重置，无法登录管理界面。改用IE浏览器后成功登录，验证了根因是浏览器与老版本系统的兼容性问题。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已通过端口扫描确认AC的HTTPS管理端口（443）处于监听状态<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>使用端口扫描工具（如MobaXterm Network Scan）扫描AC设备IP，确认443端口处于监听状态<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>使用IE浏览器访问<a href=\"https://<\">https://&lt;<\/a>AC管理IP&gt;<ul>\n<li>影响说明：需确保终端有IE浏览器或兼容模式<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>在IE浏览器显示的AC上网行为管理系统登录页面中输入用户名和密码登录<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：IE浏览器成功打开AC登录页面并登录，管理界面可正常使用<\/li>\n<li>操作影响：使用IE登录为临时方案，AC设备本身无变更，不影响正常运行；但需保留IE环境或升级系统以彻底解决兼容性<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC老版本（如12.0.x系列）的Web管理界面仅支持IE内核浏览器，原因在于其使用的HTTPS证书和TLS协议版本不被现代浏览器信任。此为已知产品特性，非故障。建议升级系统版本或使用IE浏览器访问。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0},{"t":"【AC】自定义URL域名覆盖不全导致流控不限速策略不生效，目标网站仍被限速","p":"行为管理AC","m":"流控策略","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 23:00:37","id":"2:49344","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=49344&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>针对目标网站配置“不限速”流控策略，通过自定义URL加白域名，但实际访问仍被限速。抓包与域名反查确认自定义URL域名覆盖不全，实际访问域名未加白，“不限速”策略未命中，流量回落默认限速通道。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>无显式告警。<br>故障现象：访问目标网站时流量被AC默认限速通道限制；流量管理日志/上网行为监控显示该流量未命中“不限速”策略。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.121<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：通用<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>检查流控策略中目标网站对应的自定义URL配置，确认现有域名列表及“不限速”策略引用关系。<ul>\n<li>命令/路径：打开【行为管理】-【流量管理】-【流控策略】（AC 13.0.102及以上），找到针对目标网站的“不限速”/排除策略，查看其引用的自定义URL对象；同时打开【行为管理】-【访问权限策略】，查看该自定义URL对象当前包含的域名列表。<\/li>\n<li>预期结果：能看到一条“不限速”策略，且其引用的自定义URL对象中包含目标网站的部分域名。<\/li>\n<li>判断依据：目标网站持续受限速，表明“不限速”策略未命中，需核查自定义URL域名完整性。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>在AC上开启抓包，过滤故障终端访问目标网站的流量，确认实际访问的目的IP。<ul>\n<li>命令/路径：打开【系统管理】-【系统诊断】-【抓包工具】，选择抓包接口，填写源IP=&lt;故障终端IP&gt;、目的端口80/443，点击开始抓包；同时在故障终端重新访问目标网站，待访问完成后停止抓包并导出文件。<\/li>\n<li>预期结果：抓包结果中存在访问目标网站的TCP连接，可提取出实际访问的目的IP地址。<\/li>\n<li>判断依据：抓包确认访问目标网站的真实目的IP，用于反查实际域名。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>通过目的IP反查AC识别到的实际访问域名，并辅以抓包文件中的Host/SNI字段校验。<ul>\n<li>命令/路径：方式1：打开【日志分析平台】-【日志中心】-【日志查询】，以目的IP=&lt;步骤2抓到的目的IP&gt;、时间范围=访问时间点为条件，查询记录中的“目的域名”字段。<br>方式2（若日志中心查询不到或需校验）：使用Wireshark打开步骤2导出的抓包文件，点击【统计】-【会话】定位该目的IP所在TCP流后，HTTP流量查看请求头中的Host字段，HTTPS流量展开Client Hello报文查看server_name字段，读取实际访问的完整域名。<\/li>\n<li>预期结果：能获取访问目标网站时的完整真实域名。<\/li>\n<li>判断依据：反查/抓包所得真实域名未出现在自定义URL域名列表中。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>比对该真实域名与自定义URL中的现有域名，定位“不限速”策略不生效的原因。<ul>\n<li>命令/路径：将步骤3获取的完整域名与步骤1“不限速”策略引用的自定义URL域名列表逐一比对。<\/li>\n<li>预期结果：确认自定义URL列表缺失该真实域名，导致流量无法命中“不限速”策略。<\/li>\n<li>判断依据：域名比对不一致，补充缺失域名后策略生效。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>自定义URL域名不完整，实际访问的完整域名未加白，“不限速”策略无法命中，流量回落默认限速通道继续限速。<br>AC 12.0及以上版本自定义URL域名匹配数据包中的host（HTTP）及Server Name（HTTPS Client Hello）字段，而非目的IP；若实际访问域名比配置域名更完整或未收录，加白匹配失效。通过抓包确认目的IP并反查实际域名，补充缺失域名后策略生效，放通测试正常。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认“不限速”策略本身配置正确，问题根因是自定义URL域名覆盖不完整；已通过抓包/日志中心反查确认实际访问域名；操作前请备份当前AC策略配置。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>登录AC管理控制台，打开【行为管理】-【流量管理】-【流控策略】（AC 13.0.102及以上），找到目标“不限速”/排除策略并查看其引用的URL对象；若URL对象在访问权限策略中，则从【行为管理】-【访问权限策略】进入编辑。<ul>\n<li>影响说明：编辑流控/访问权限策略配置后保存会立即生效，可能影响引用同一策略的其他用户，建议在业务低峰期操作。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>将反查得到的实际访问域名添加到自定义URL域名列表，保存URL对象及策略。<ul>\n<li>影响说明：仅新增一个加白域名，对现有策略匹配规则影响极小。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>终端重新访问目标网站，确认不再受限速。<ul>\n<li>影响说明：测试访问不会对业务造成影响。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：终端访问目标网站，下载/测速正常，不再限速；【日志分析平台】-【日志中心】流量时长分析显示访问流量已命中自定义URL加白规则，未回落到默认限速通道。<\/li>\n<li>操作影响：修改自定义URL后策略配置立即生效，可能与原有其他限制策略叠加，需注意对同URL下其他应用或路径的影响；不影响AC设备在线运行及已建立的TCP会话。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>自定义URL在AC 12.0及以上版本匹配的是数据包中的host（HTTP）及Server Name（HTTPS Client Hello）字段，不会匹配目的IP，排查时须以数据包/日志中还原出的完整域名为准，避免仅凭IP判断加白是否命中。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0},{"t":"【AC】因内网IP地址冲突，导致用户频繁MAC变动注销，实际网卡MAC未变","p":"行为管理AC","m":"认证高级选项","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 23:00:24","id":"2:49429","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=49429&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC设备部署于内网，终端频繁登录后1-2分钟即注销，注销日志提示MAC变动注销，但终端实际网卡MAC未变化。排查发现内网交换机存在IP地址冲突，导致AC跨三层取MAC无法正确关联终端MAC，触发MAC变动注销。故障涉及AC跨三层取MAC识别与内网IP地址冲突，触发于终端使用10.xx网段IP认证时。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC注销日志：MAC变动注销<br>认证方式: 密码认证<br>mac: e0-be-03-14-2c-a3<br>uuid: f319cbab-344f-4e40-b528-ee6496f24da8<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.121<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：通用<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>查看AC登录/注销日志，确认终端注销类型与源IP信息。[知识库补充：登录/注销日志入口为【内置数据中心】-【日志查询】-【登录/注销日志】]<ul>\n<li>命令/路径：【内置数据中心】-【日志查询】-【登录/注销日志】<\/li>\n<li>预期结果：日志显示终端多次登录后1-2分钟即注销，注销详情标注为MAC变动注销，源IP为10.xx，终端MAC为e0-be-03-14-2c-a3<\/li>\n<li>判断依据：日志记录显示终端在09:55-10:35间多次登录后1-2分钟即注销，注销原因为MAC变动注销。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>检查AC跨三层取MAC配置，过滤终端IP 10.xx，确认AC是否已获取到该IP的MAC绑定关系。<ul>\n<li>命令/路径：【接入管理】-【接入认证】-【跨三层取MAC】（页面URL：.../access/auth/correlation/cross_third_layer）<\/li>\n<li>预期结果：IP/MAC列表中无10.xx对应记录，AC未获取到该终端的MAC绑定信息。<\/li>\n<li>判断依据：过滤值10.xx时提示\"没有可以显示的数据\"，确认AC跨三层取MAC未获取到该IP的MAC绑定。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>在终端上查看网卡物理地址，确认终端实际MAC是否发生变化。【第三方操作：以终端实际情况为准】<ul>\n<li>命令/路径：终端Windows网络连接详细信息窗口<\/li>\n<li>预期结果：终端物理地址为E0-BE-03-14-2C-A3，与AC注销日志中记录的MAC一致。<\/li>\n<li>判断依据：终端物理地址为E0-BE-03-14-2C-A3，对应AC日志中的mac e0-be-03-14-2c-a3，确认终端实际MAC未变化。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>登录内网交换机查看ARP表，核实IP 10.xx对应的MAC记录。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>命令/路径：\n<pre class=\"language-markup\"><code>dis arp | include 10.xx\n<\/code><\/pre>\n<\/li>\n<li>预期结果：能查看到IP 10.xx对应的MAC及接口信息。<\/li>\n<li>判断依据：首次查询IP 10.xx对应MAC为e0be-0314-2ca3，接口GE0/0/5；再次查询时对应MAC变为0030-4489-0117，接口GE0/0/8，同一IP对应两个不同MAC。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"5\">\n<li>对比交换机两次ARP查询结果，确认内网存在IP地址冲突。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>命令/路径：\n<pre class=\"language-markup\"><code>dis arp | include e0be-0314-2ca3\ndis arp | include 10.xx\n<\/code><\/pre>\n<\/li>\n<li>预期结果：同一IP在不同时间绑定不同MAC，且前一MAC已无对应IP条目，确认为IP冲突。<\/li>\n<li>判断依据：第二次查询IP 10.xx对应MAC变为0030-4489-0117，查询e0be-0314-2ca3无对应IP条目，证实该IP被两个不同设备交替占用。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>内网存在IP地址冲突（IP 10.xx同时被终端MAC e0-be-03-14-2c-a3和另一设备MAC 0030-4489-0117占用），AC跨三层取MAC无法正确获取该IP/MAC绑定关系。当AC读取到的MAC与终端实际MAC不一致时，触发MAC变动注销机制，导致终端频繁登录后被注销。<br>内网交换机ARP表证实IP 10.xx先后对应两个不同MAC：首次查询对应e0be-0314-2ca3（终端网卡MAC），再次查询对应0030-4489-0117（另一设备MAC），说明网络上有两台设备使用同一IP，产生IP冲突。AC跨三层取MAC列表中过滤10.xx时无对应数据，AC无法稳定获取终端真实MAC，触发MAC变动注销，导致频繁掉线。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认AC跨三层取MAC配置正确，SNMP服务器列表包含核心交换机地址；需网络管理员配合排查并处理IP冲突。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>联系网络管理员排查内网IP地址冲突，定位并处理占用IP 10.xx的另一台设备（MAC 0030-4489-0117），使其不再使用该IP。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>影响说明：修改冲突设备IP前需确认该设备用途，避免影响其自身业务；建议在业务低峰期操作，并提前备份交换机配置。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>IP冲突解决后，在AC跨三层取MAC页面点击\"查看当前获取到的IP/MAC列表\"，过滤IP 10.xx，确认AC能获取到终端MAC e0-be-03-14-2c-a3。<ul>\n<li>影响说明：仅查看AC上的IP/MAC列表，无配置变更，不影响业务。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>让终端重新认证登录，观察在线状态是否稳定，确认不再出现MAC变动注销。<ul>\n<li>影响说明：终端重新认证登录为正常操作，不影响其他用户。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：IP冲突解决后，终端重新认证登录不再出现MAC变动注销，验证通过，工单正常闭环。<\/li>\n<li>操作影响：解决IP冲突属于内网网络调整，需确保冲突另一台设备修改IP后不影响其自身业务；AC侧无配置变更，不影响其他用户。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<ul>\n<li>当内网出现大量终端频繁MAC变动注销时，除终端侧因素外，应优先排查内网IP地址冲突。可在AC跨三层取MAC的IP/MAC列表中检索频繁掉线终端的IP，若无法获取到对应MAC或MAC与实际终端不一致，则需进一步检查交换机ARP表。<\/li>\n<li>AC跨三层取MAC依赖交换机的SNMP功能，建议确保核心交换机已开启SNMP且只读团体字配置正确，定期检查AC获取到的IP/MAC列表完整性。<\/li>\n<li>排查交换机ARP信息属于网络调整操作，建议在业务低峰期进行，并提前备份交换机配置。<\/li>\n<\/ul>\n<\/div>\n<\/div>","img":0},{"t":"【AC】准入计划任务规则执行自定义bat脚本返回码3，导致合规检查结果显示异常并提示违规","p":"行为管理AC","m":"终端检查","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 22:59:32","id":"2:49881","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=49881&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC设备准入计划任务规则执行自定义bat脚本清理temp缓存，合规检查结果异常，提示任务执行超时及返回值0x3。涉及准入计划任务规则执行结果检查机制，触发于计划任务周期性执行脚本并勾选“检查返回结果”。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>合规检查记录：检测时间2026-09-10 09:08:32，规则名称“清空temp缓存文件”，合规检查结果：异常，详情：任务执行超时<br>准入日志：currentExitCode:3(lastExitCode:0)，提示“返回值为0x3”，detail=Error: log file path is missing after -a<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.120<\/li>\n<li>架构：通用架构<\/li>\n<li>部署模式：通用<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>查看准入计划任务规则配置，确认执行程序、程序运行参数、执行计划、执行结果检查及超时设置。<ul>\n<li>命令/路径：打开【接入管理】-【终端管理】-【终端检查规则】-【插件检查规则】下的【计划任务规则】<\/li>\n<li>预期结果：确认计划任务规则各项配置是否与脚本实际需求匹配。<\/li>\n<li>判断依据：规则配置：执行程序为上传的自定义bat文件（test(1).bat），运行参数-a，周期运行（间隔0小时0分钟40秒），勾选“检查返回结果”，任务超时自定义40秒。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>查看合规检查记录，确认异常记录的详情信息。<ul>\n<li>命令/路径：打开【全网监控】-【合规检查状态】<\/li>\n<li>预期结果：定位到“清空temp缓存文件”规则异常记录的具体详情。<\/li>\n<li>判断依据：2026-09-10 09:08:32记录“任务执行超时”；后续记录“Error: log file path is missing after -a”，返回值0x3。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>采集准入客户端日志，查看脚本执行过程与返回码。<ul>\n<li>命令/路径：PC端准入日志路径：\n<ul>\n<li>64位操作系统：C:\\Windows\\SysWOW64\\config\\igslog<\/li>\n<li>32位操作系统：C:\\WINDOWS\\system32\\config\\igslog<\/li>\n<\/ul>\n<\/li>\n<li>预期结果：日志中可查看到计划任务脚本的执行过程及返回码。<\/li>\n<li>判断依据：日志中 currentExitCode:3(lastExitCode:0)，nAgainstRule = 0 againrule = 13，提示“返回值为0x3”，detail=Error: log file path is missing after -a。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>对照AC计划任务规则返回码说明，确认返回码3的含义。<ul>\n<li>命令/路径：无<\/li>\n<li>预期结果：确认返回码3对应的错误类型。<\/li>\n<li>判断依据：返回码汇总：0=操作成功（删除/新建成功）；1=删除失败或创建失败；2=删除时文件不存在或新建时旧文件删除失败；3=参数错误（缺少参数、操作符不是-d/-a），与日志中-a后缺日志文件路径报错一致。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>准入计划任务规则执行的自定义bat脚本返回码为3（参数错误，-a参数后缺少日志文件路径），AC计划任务规则执行结果检查仅识别0/1/2返回码，导致脚本执行结果被判违规，合规检查异常。<br>准入日志记录currentExitCode:3(lastExitCode:0)，提示“返回值为0x3”、detail=Error: log file path is missing after -a；AC返回码说明中3表示“参数错误（缺少参数、操作符不是-d/-a）”，与脚本-a参数后缺日志文件路径一致。脚本已执行，清理结果输出至C:\\Users\\Administrator\\AppData\\Local\\Temp\\路径下。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认bat脚本可以正常执行且清理结果已输出到C:\\Users\\Administrator\\AppData\\Local\\Temp\\路径下，问题在于脚本返回码不被AC执行结果检查识别。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>修改自定义bat脚本，确保成功返回0、删除失败返回1、文件不存在返回2，避免返回3等AC无法识别的返回码。<ul>\n<li>影响说明：修改脚本返回码需确保脚本逻辑能正确区分各类执行结果，避免误报。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>计划任务规则中重新上传或选择修改后的bat脚本，确认运行参数与脚本期望一致（如-a后需携带日志文件路径），提交配置。<ul>\n<li>影响说明：重新上传脚本会触发下一周期计划任务重新执行；参数需与脚本定义严格匹配，否则可能再次产生异常。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>（备选方案）计划任务规则中将执行程序改回此前可正常返回的清理内存脚本，避免使用返回码不被AC识别的脚本。<ul>\n<li>影响说明：改用原有脚本可快速恢复合规状态，但若原脚本清理能力不足，temp缓存清理效果可能受影响。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：打开【全网监控】-【合规检查状态】，确认“清空temp缓存文件”规则合规检查结果由“异常”变为“合规”；查看C:\\Users\\Administrator\\AppData\\Local\\Temp\\路径下脚本执行结果输出文件，确认脚本已正常执行。<\/li>\n<li>操作影响：修改脚本返回码或更换脚本后，计划任务规则将按新配置执行，后续周期任务以新返回码作为合规判定依据，不再出现因返回码3导致的异常告警。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>编写AC准入计划任务规则的自定义脚本时，需确保脚本退出码符合AC返回码约定（0=成功、1=删除失败、2=文件不存在），同时确认程序运行参数与脚本定义一致，可有效避免合规误报。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0},{"t":"【AC】因对接CSSP导致管理口IP被联动绑定，修改DMZ口IP提示“DMZ网关错误”无法提交","p":"行为管理AC","m":"网络配置","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 22:58:46","id":"2:51138","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=51138&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC已对接CSSP平台，修改管理口/DMZ口IP时提示“AC当前处于与CSSP对接状态!DMZ网关错误”，配置提交失败。问题涉及AC与CSSP联动及网口配置，触发条件为已对接CSSP状态下调整DMZ口IP。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC当前处于与CSSP对接状态!DMZ网关错误,网关应当为: 10.xx/255.xx；主机连通性探测失败，请稍后重新设置并编辑并选择保存<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.47<\/li>\n<li>架构：通用架构<\/li>\n<li>部署模式：网桥模式<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>查看AC的部署模式与网口配置信息，确认当前网桥IP、管理口eth1的IP及默认网关。<ul>\n<li>命令/路径：打开【系统管理】-【网络配置】-【部署模式】查看网桥模式配置信息；打开【系统管理】-【网络配置】-【网口配置】查看各网口IP。<\/li>\n<li>预期结果：显示网桥IP为10.xx/255.xx，桥接方向eth0&lt;-&gt;eth2，管理口eth1为10.xx/255.xx与8.xx/255.xx，默认网关10.xx。<\/li>\n<li>判断依据：页面提示“AC当前处于与CSSP对接状态!DMZ网关错误,网关应当为:”，表明处于CSSP对接状态且配置冲突。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>检查深信服设备对接配置，确认AC是否已与CSSP平台建立对接。<ul>\n<li>命令/路径：打开【系统管理】-【系统配置】-【深信服设备对接】。<\/li>\n<li>预期结果：可看到已接入设备信息：设备名称CSSP、设备类型CSSP。<\/li>\n<li>判断依据：深信服设备对接界面显示已接入CSSP设备，证明AC处于CSSP对接状态，管理口（DMZ口）IP被联动绑定。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>检查各网口的联动占用情况，确认管理口eth1是否因对接CSSP无法直接修改。<ul>\n<li>命令/路径：打开【系统管理】-【网络配置】-【网口配置】查看管理口eth1配置。<\/li>\n<li>预期结果：确认eth1为管理口，承载深信服设备对接联动，无法直接修改其IP。<\/li>\n<li>判断依据：现场确认eth1口存在联动对接且无法直接修改，与CSSP对接状态印证。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC已与CSSP平台对接，管理口（DMZ口）IP与CSSP联动绑定，部署模式中直接修改该接口IP时校验失败，提示“AC当前处于与CSSP对接状态!DMZ网关错误”，配置无法提交。<br>深信服设备对接界面显示已接入CSSP设备，确认eth1口存在联动对接，无法直接修改。报错信息“AC当前处于与CSSP对接状态!DMZ网关错误,网关应当为: 10.xx/255.xx”证实AC在CSSP对接状态下修改管理口IP被联动校验拦截。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认AC与CSSP平台存在对接关系；已确认通过修改网桥IP并配置回包路由可满足内网访问AC的需求；已评估直接修改管理口IP不可行。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>登录AC控制台，打开【系统管理】-【网络配置】-【部署模式】，进入网桥模式配置页。<ul>\n<li>影响说明：修改网桥IP前请确认当前网络接入情况，避免操作过程中管理连接断开。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>【高危操作】修改网桥IP列表地址（默认网关不变）。<ul>\n<li>影响说明：修改网桥IP会改变AC的桥接地址，可能导致管理与业务流量中断，建议在业务低峰期操作。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>【高危操作】点击【提交】保存配置。<ul>\n<li>影响说明：提交后设备会重启，重启期间管理连接及业务将中断。重启为高危操作，需提前通知相关人员。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>等待设备重启完成。<ul>\n<li>影响说明：重启期间勿进行其他配置操作，等待设备完全启动。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"5\">\n<li>打开【系统管理】-【网络配置】-【路由】，配置内网回包路由，将需经网桥口转发的目的IP下一跳填写为网桥口网关。<ul>\n<li>影响说明：配置路由前请确认目的网段和下一跳地址的准确性，避免因路由指向错误导致网络不通。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"6\">\n<li>验证内网经新网桥IP可访问AC，业务恢复正常。<ul>\n<li>影响说明：验证管理可达性和业务连通性。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：修改网桥IP并配置内网回包路由后，内网可正常访问AC，业务恢复正常。<\/li>\n<li>操作影响：修改网桥IP并添加回包路由会改变AC的桥接转发地址及选路，需确保路由指向正确，否则可能导致管理或业务访问中断；提交配置后设备将重启，造成管理连接与业务短暂中断。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC设备与CSSP平台对接后，管理口（DMZ口）IP与CSSP联动绑定，无法在部署模式配置中直接修改。若需调整管理地址，可通过修改网桥IP并配置回包路由实现，避免触发CSSP对接状态校验。修改管理口IP涉及CSSP联动约束，操作前需确认当前是否处于CSSP对接状态，若对接状态存在，应优先考虑修改网桥IP而非直接修改管理口IP。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0},{"t":"【AC】割接后AF接口联动配置未同步更新，导致AF下联口与AC上下联口物理状态无法UP","p":"行为管理AC","m":"访问异常","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 22:58:34","id":"2:51147","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=51147&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>部署割接中，抗D设备替换为SD-WAN，AF防火墙上联口由17口切至3口。割接后AF下联口与AC上下联接口物理状态持续无法UP，重启AC仅短暂恢复，回退割接前拓扑后链路恢复正常。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<pre class=\"language-markup\"><code>AF日志：网络|接口状态||接口 eth17 状态由UP变为DOWN|请检查接口状态！\n网络|接口状态||接口 eth18 状态由UP变为DOWN|请检查接口状态！\nAC dmesg：igb: eth0 NIC Link is Down\n<\/code><\/pre>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.120<\/li>\n<li>架构：通用架构<\/li>\n<li>部署模式：网桥模式<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>查看AC黑匣子dmesg日志，确认AC网口是否存在DOWN记录。<ul>\n<li>命令/路径：读取AC黑匣子dmesg日志（路径：debug/blackbox/08/since-&lt;时间戳&gt;/dmesg），搜索关键词'NIC Link'<\/li>\n<li>预期结果：确认AC上下联接口（eth8/eth7）是否记录物理DOWN事件。<\/li>\n<li>判断依据：AC eth7/eth8仅反复UP，无DOWN记录；仅自带管理口eth0（平时未接线）出现 igb: eth0 NIC Link is Down。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>检查AC部署模式，确认网桥配置及多网桥链路同步开关状态。<ul>\n<li>命令/路径：打开【系统管理】-【网络配置】-【部署模式】<\/li>\n<li>预期结果：查看网桥模式配置及链路同步开关状态。<\/li>\n<li>判断依据：AC为单网桥模式（eth8&lt;-&gt;eth7），已勾选'开启多网桥链路同步'，链路同步列表eth8&lt;-&gt;eth7支持链路同步。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>查看AF防火墙系统故障日志，确认上下联接口UP/DOWN状态与时间点。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>命令/路径：打开AF控制台【系统】-【排障】-【系统故障日志】<\/li>\n<li>预期结果：确认AF上联口（原17口/新3口）与下联口（18口）状态变化时间点。<\/li>\n<li>判断依据：日志显示：13:03:19 eth17、eth18、eth17.2002、eth17.2050 由UP变DOWN；14:04:11 eth17由DOWN变UP；14:04:24 eth18由DOWN变UP。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>检查AF接口联动配置，核对联动规则是否随割接端口变更同步更新。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>命令/路径：打开AF控制台【网络】-【接口】-【接口联动】<\/li>\n<li>预期结果：确认接口联动规则绑定的端口与割接后新拓扑是否一致。<\/li>\n<li>判断依据：已启用接口LINK状态联动，规则为eth17,eth18；割接17口切至3口后17-18联动仍保留，18口无法协商UP。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"5\">\n<li>登录核心交换机，核对接口DOWN/UP日志时间戳，与AF侧日志时间对齐。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>命令/路径：【第三方操作：以第三方设备实际情况为准】<\/li>\n<li>预期结果：对齐各设备时间，确认接口DOWN先后顺序。<\/li>\n<li>判断依据：核心交换机与防火墙时间一致（防火墙同步核心时间），核心侧接口DOWN时间点与AF侧接口DOWN时间点吻合。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AF接口联动规则仍绑定eth17与eth18；割接将上联口由17口切至3口后未同步更新联动关系，AF下联口eth18无法单独协商UP并保持DOWN，导致AC上联口无法UP；叠加AC多网桥链路同步（任一网口DOWN则对端同步DOWN），AC下联口随之DOWN，最终AF下联口、AC上下联口、核心上联口均无法UP，业务中断，回退割接前拓扑后链路恢复正常。AF侧'启用接口LINK状态联动'规则为eth17,eth18，17口切至3口后未同步修改联动关系，18口无法单独协商；AC侧多网桥链路同步将AF下联口DOWN传导至AC下联口。核心交换机与防火墙时间一致（防火墙同步核心时间），核心侧接口DOWN时间点与AF侧接口DOWN时间点吻合，佐证故障传导路径。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认AC链路状态同步属于正常设计，故障根因在于AF侧接口联动配置未随割接同步更新；需在割接窗口期内修改AF侧联动规则后重新割接验证。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>登录AF控制台，进入【网络】-【接口】-【接口联动】，查看已启用的接口LINK状态联动规则。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>修改联动规则：将原eth17,eth18改为新上联口eth3与eth18联动，或删除原17-18联动，确保联动端口与割接后拓扑一致。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>影响说明：修改接口联动规则会改变接口LINK状态联动行为，需确保联动端口与新拓扑一致，避免再次误联动。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>核对AC侧多网桥链路同步配置与割接后拓扑端口对应关系。<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>【高危操作】按新拓扑重新割接上架。<ul>\n<li>影响说明：割接期间链路会短暂中断，需在业务窗口期实施并做好回退准备。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"5\">\n<li>观察AF下联口、AC上下联口、核心上联口物理状态是否正常UP。【第三方操作：以第三方设备实际情况为准】<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：重新割接上架后，AF下联口、AC上下联口、核心上联口物理状态正常UP，业务恢复正常，无其他问题。<\/li>\n<li>操作影响：修改AF接口联动规则会影响接口LINK状态联动行为，割接期间链路会短暂中断，需在业务窗口期实施并做好回退准备。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<ul>\n<li>接口联动是AF防火墙的标准功能，用于在某个接口链路DOWN时联动其他接口DOWN，以触发对端设备的冗余切换。<\/li>\n<li>AC多网桥链路同步是网桥部署模式下的标准功能：当一个网桥口物理DOWN时会自动将配对网口也置为DOWN，以保证网桥链路对端设备能感知故障并触发切换，属于保护机制而非缺陷。<\/li>\n<li>割接场景建议：上下联端口变更时，需同步梳理AF接口联动、AC多网桥链路同步等依赖物理端口状态的配置，避免联动配置与拓扑不一致导致链路无法UP。<\/li>\n<\/ul>\n<\/div>\n<\/div>","img":0},{"t":"【AC】因备控软件升级授权过期，导致双主AC升级后主备配置和在线用户不同步","p":"行为管理AC","m":"升级","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 22:58:12","id":"2:48006","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=48006&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC双主模式升级时，备控软件升级授权过期，无法升级，导致主备配置和在线用户无法同步，网络转发业务正常。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>软件升级授权已过期，过期时间：2024-08-25；异常信息：规则库升级：过期、软件升级：过期<br><img data-src=\"https://support-cdn-dl.sangfor.com.cn/static/6f709e4ea26611f1ad92fefcfe054eca.jpg\" alt=\"截图\" style=\"max-width:100%;height:auto;border:1px solid #e3e6ec;border-radius:6px;margin:6px 0\" loading=\"lazy\"><br><img data-src=\"https://support-cdn-dl.sangfor.com.cn/static/6f76a064a26611f1ad92fefcfe054eca.jpg\" alt=\"截图\" style=\"max-width:100%;height:auto;border:1px solid #e3e6ec;border-radius:6px;margin:6px 0\" loading=\"lazy\"><\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.62<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：双主模式（高可用性）<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>查看备控的软件升级授权状态，确认是否过期。<ul>\n<li>命令/路径：打开【系统管理】-【系统配置】-【授权管理】<\/li>\n<li>预期结果：软件升级授权应在有效期内，可正常执行版本升级。<\/li>\n<li>判断依据：备控授权页面显示软件升级授权已过期（2024-08-25）。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>确认双主模式下备控是否承担业务流量，评估升级失败对业务的影响范围。<ul>\n<li>命令/路径：打开【全网监控】-【流量状态】<\/li>\n<li>预期结果：若备控不承担流量，则其升级失败不影响业务转发。<\/li>\n<li>判断依据：流量状态无实时数据，备控历史设备未跑流量。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>确认主控升级完成、备控未升级后，主备配置和在线用户同步情况。<ul>\n<li>命令/路径：打开【系统管理】-【网络配置】-【高可用性】<\/li>\n<li>预期结果：主备版本一致，配置和在线用户可正常同步。<\/li>\n<li>判断依据：主控升级完成，单台跑流量正常，但配置和在线用户无法同步。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>备控软件升级授权已于2024-08-25过期，无法升级，主控升级后主备版本不一致，配置和在线用户无法同步。<br>节点设备无升级序列号，历史设备未跑流量；主控升级完成，单台跑流量正常，仅配置和在线用户不同步。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认当前网络业务正常，双主模式下备控未承担流量，故障影响可控。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>确认网络业务正常，双主模式下备控未承担流量，故障影响可控。<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>AC升级后无法回退版本，回退需返厂刷母盘。<ul>\n<li>影响说明：确认升级不可逆，避免后续误操作。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>建议与商务/销售沟通备控软件升级授权续费，续费后升级备控，使主备版本一致，恢复配置和在线用户同步。<ul>\n<li>影响说明：续费后升级备控，期间备控会重启，若备控不承担流量，对业务无影响。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：确认网络业务运行正常，无新故障；续费并升级备控后，主备版本一致，配置和在线用户同步正常。<\/li>\n<li>操作影响：当前网络业务未受影响，但主备配置和在线用户无法同步，影响后续双主模式下统一管理；若后续需配置802.1X，配置可能无法同步。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>双主模式升级前，必须确保两台设备授权一致且有效，建议在业务低峰期操作，并提前备份配置。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":2},{"t":"【AC】旁路部署下桌面云盒子仅访问trust区域VDC，流量不经过镜像口导致免认证绑定后离线","p":"行为管理AC","m":"不需要认证","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 22:57:47","id":"2:48062","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=48062&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC旁路部署+流量镜像监控143.xx/24网段，部分桌面云盒子绑定IP-MAC免认证后仍离线。盒子仅向trust区域VDC服务器请求虚拟机，不访问untrust区域，AC镜像口无法感知盒子流量，入网识别链路无法建立。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>用户绑定窗口自动获取MAC显示00-00-00-00-00-00（见截图IMG_115243818_1875093426）；入网用户列表中目标盒子显示离线，最后活跃时间为当天中午12点<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.15<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：旁路模式<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>查看免认证绑定场景，检查终端自动获取的MAC地址。<ul>\n<li>命令/路径：打开【接入管理】-【用户管理】-【用户绑定管理】，查看新增用户绑定窗口的自动获取MAC字段。<\/li>\n<li>预期结果：自动获取MAC应回填为终端真实MAC地址。<\/li>\n<li>判断依据：自动获取结果为00-00-00-00-00-00（见截图<img data-src=\"IMG_115243818_1875093426\" alt=\"截图\" style=\"max-width:100%;height:auto;border:1px solid #e3e6ec;border-radius:6px;margin:6px 0\" loading=\"lazy\">），AC用户列表已识别真实MAC（如fe-fc-fe-89-05-64，见截图<img data-src=\"IMG_115243753_841255086\" alt=\"截图\" style=\"max-width:100%;height:auto;border:1px solid #e3e6ec;border-radius:6px;margin:6px 0\" loading=\"lazy\">），自动获取功能未正常回填。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>确认AC部署模式及镜像口配置。<ul>\n<li>命令/路径：打开【系统管理】-【网络配置】-【部署模式】，查看部署模式及镜像口配置。<\/li>\n<li>预期结果：部署模式为旁路，镜像口监控143.xx/24网段。<\/li>\n<li>判断依据：截图IMG_115415835_145531689显示部署模式为旁路，管理口eth0，镜像口eth3/eth2，已监控143.xx/24网段。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>在AC后台使用tcpdump抓取目标盒子IP的镜像口流量，确认双向流量是否到达。<ul>\n<li>命令/路径：执行命令：tcpdump -i any host &lt;盒子IP&gt; -nne -s0 -w /tmp/0828.pcap -vv -c 100000（&lt;盒子IP&gt;替换为实际IP）<\/li>\n<li>预期结果：若抓到目标IP双向流量则流量经过AC；若抓不到则说明流量不经过AC镜像口。<\/li>\n<li>判断依据：未实际抓包，业务方确认盒子仅访问trust区域VDC，流量不经过AC，抓不到流量属正常。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>结合业务架构确认盒子流量路径。<ul>\n<li>命令/路径：联系业务方确认桌面云盒子的网络访问行为，确认是否向untrust区域发送数据。<\/li>\n<li>预期结果：确认盒子仅向trust区域VDC服务器请求虚拟机，不访问untrust区域。<\/li>\n<li>判断依据：盒子不向untrust区域请求数据，只向trust区域VDC服务器请求虚拟机，故检测不到属正常。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>桌面云盒子仅向trust区域VDC服务器请求虚拟机桌面流量，不访问untrust区域，旁路部署的AC镜像口无法感知盒子流量，免认证绑定IP-MAC后部分盒子仍离线。AC旁路部署、eth2/eth3镜像口监控143.xx/24，盒子流量不经过AC，入网识别链路无法建立，离线属正常现象。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认AC旁路部署、镜像口配置正确且认证策略允许免认证；已通过业务侧确认盒子仅向trust区域VDC请求数据。<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>检查AC部署模式及镜像口配置（同排查步骤2）。<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>联系业务方确认盒子流量路径（同排查步骤4）。<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>结论：无需处理，离线属正常。客户确认不绑定盒子，仅对电脑做限制即可。<ul>\n<li>影响说明：盒子不在AC监控范围内，AC无法对盒子进行免认证、入网展示和访问控制；客户确认对现有业务无影响。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：业务同事确认盒子仅访问trust区域VDC，流量不经过AC；客户确认无需处理，工单闭环。<\/li>\n<li>操作影响：盒子不在AC监控范围内，AC无法对盒子进行免认证、入网展示和访问控制；客户确认对现有业务无影响，可不绑定盒子。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>本案例中盒子离线并非AC设备故障或配置错误，而是网络架构设计导致AC无法感知盒子流量。若需要对盒子进行入网管控，需调整网络架构使盒子流量经过AC（如改为网桥部署或调整路由策略）。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":2},{"t":"【AC】因服务器断电导致认证注销，VPN隧道访问对端业务不通","p":"行为管理AC","m":"其他认证服务器","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 22:57:25","id":"2:48071","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=48071&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC设备VPN隧道访问对端业务不通，仅能长ping通对端Windows服务器。该服务器断电后AC认证注册信息被注销，导致认证页面未弹出，业务无法访问，重新注册认证后恢复。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>无<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 12.0.62<\/li>\n<li>架构：通用架构<\/li>\n<li>部署模式：通用<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>检查VPN隧道访问链路，确认网络连通性<ul>\n<li>命令/路径：从AC控制台打开【系统管理】-【系统诊断】-【连接监控】，查看VPN隧道连接状态；或使用ping命令测试对端服务器IP地址<\/li>\n<li>预期结果：VPN隧道状态显示已建立，对端服务器可ping通<\/li>\n<li>判断依据：仅能长ping通对端服务器IP（10.27.xx.xx），业务流量无法正常转发<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>核对认证方式，判断认证页面是否正常弹出<ul>\n<li>命令/路径： 打开【接入管理】-【接入认证】-【认证策略】，查看适用的认证策略配置<\/li>\n<li>预期结果：认证策略配置为密码认证，且未勾选“不允许认证”<\/li>\n<li>判断依据：服务器侧显示为密码认证，认证页面未正常弹出<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>确认服务器操作系统类型，并测试访问网站能否弹出认证页面<ul>\n<li>命令/路径：在服务器上通过浏览器访问任意HTTP网站（如<a href=\"http://www.baidu.com）\">http://www.baidu.com）<\/a><\/li>\n<li>预期结果：弹出AC认证注册页面，显示用户名、验证码等输入框<\/li>\n<li>判断依据：服务器为Windows系统，访问网站弹出注册页面，显示用户名“仓储金蝶服务器”、验证码等，确认需注册认证<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>在认证页面完成注册认证，验证业务恢复<ul>\n<li>命令/路径：在认证页面输入用户名、密码、验证码，点击注册认证<\/li>\n<li>预期结果：注册认证成功后，VPN隧道访问对端业务恢复正常<\/li>\n<li>判断依据：重新注册认证后业务恢复，VPN隧道可正常访问对端业务<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>对端Windows服务器断电后，AC认证注册信息被注销，VPN隧道访问时认证页面未正常弹出，业务不通。服务器断电后，AC侧因“无流量注销”或会话超时机制清除用户认证状态，需重新认证，但认证页面未自动弹出，需手动访问HTTP网站触发。重新注册认证后业务恢复。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认服务器操作系统为Windows，且网络层可达（仅长ping通）<\/li>\n<li>是否后台操作：否<\/li>\n<li>操作步骤：\n<ol>\n<li>确认服务器操作系统类型为Windows<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>通过浏览器访问HTTP网站（如<a href=\"http://www.baidu.com）触发AC认证页面\">http://www.baidu.com）触发AC认证页面<\/a><ul>\n<li>影响说明：认证页面未弹出前，服务器无法正常访问互联网业务<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>在认证页面填写用户名、密码、验证码，完成注册认证<ul>\n<li>影响说明：需确保用户名和密码正确，验证码可正常获取<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>验证VPN隧道访问对端业务是否恢复<ul>\n<li>影响说明：无<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：认证页面注册成功后，VPN隧道对端业务（如数据库、应用服务）可正常访问。<\/li>\n<li>操作影响：在服务器重新认证前，VPN隧道无法访问对端业务，影响业务连续性；重新认证后恢复<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>无<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0},{"t":"【AC】因同步LDAP域组织过大（约160万用户条目）导致磁盘IO高引发设备主动宕机，核心接口down告警后自动恢复","p":"行为管理AC","m":"异常重启","v":"行为管理AC13.0.121&AC12.0.121 ｜ 行为管理AC13.0.120&AC12.0.120 ｜ 行为管理AC13.0.102 等 46 个版本","s":"通用","u":"2026-09-14 22:57:09","id":"2:48147","url":"https://support.sangfor.com.cn/cases/list?product_id=22&type=1&category_id=48147&isOpen=true","h":"<div class=\"case-tinymce-wrap\">\n<div class=\"mceNonEditable problem-description-box\"><h3>问题描述<\/h3> \n<div class=\"problem-description\" style=\"min-height: 40px;\">\n<p>AC 13.0.120版本设备在同步LDAP域组织时，因域组织过大（约160万用户条目）导致磁盘IO过高，触发设备主动宕机机制。宕机时核心接口down告警，设备自动重启后恢复。升级至121版本后不再复发。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>告警信息<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>用户收到告警：核心接口down，然后又马上恢复<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>环境与版本信息<\/h3> \n<ul>\n<li>产品版本：AC 13.0.120<\/li>\n<li>架构：通用<\/li>\n<li>部署模式：旁路模式<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>有效排查步骤<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<ol>\n<li>查看AC运行时间与告警时间，确认设备是否重启。<ul>\n<li>命令/路径：打开【系统管理】-【系统配置】-【系统信息】，查看系统运行时间；或后台执行 <code>uptime<\/code> 命令。<\/li>\n<li>预期结果：可确认AC运行时间与告警时间是否匹配。<\/li>\n<li>判断依据：运行时间与告警时间吻合，设备曾重启。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>收集宕机分析材料。<ul>\n<li>命令/路径：打开【系统管理】-【高级选项设置】-【远程维护】-【下载黑匣子】，或后台执行 <code>/ac/common/scripts/get_debug_info.sh<\/code>。<\/li>\n<li>预期结果：可获取黑匣子信息用于宕机原因分析。<\/li>\n<li>判断依据：黑匣子包含宕机日志和系统状态。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"3\">\n<li>查看宕机日志，确认设备是否主动宕机并核实与磁盘IO高的关联。<ul>\n<li>命令/路径：分析黑匣子中的系统日志，定位宕机时间点前后的异常记录。<\/li>\n<li>预期结果：可确认设备是否为主动宕机及宕机原因。<\/li>\n<li>判断依据：宕机日志显示主动宕机，与磁盘IO高相关。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"4\">\n<li>检查LDAP域用户组织规模，核实用户条目数。<ul>\n<li>命令/路径：打开【接入管理】-【用户管理】-【域用户】，查看组织结构和成员列表。<\/li>\n<li>预期结果：可确认LDAP域组织规模。<\/li>\n<li>判断依据：LDAP域包含约160万用户条目，单个OU达4.5万，远超内网正常规模。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/div>\n<\/div>\n<div class=\"mceNonEditable\"><h3>根因<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>AC 13.0.120版本同步超大LDAP域组织（约160万用户条目）时，磁盘IO过高触发主动宕机机制，宕机导致核心接口down告警，自动重启后恢复。升级至AC13.0.121.001 Build20260324后观察无告警，该问题已在121版本修复。<br>磁盘IO高引起主动宕机，根因是同步域组织过大，121版本已修复，升级后不再复发。<\/p>\n<\/div>\n<\/div>\n<div class=\"mceNonEditable problem-description-box\"><h3>解决方案<\/h3> \n<ul>\n<li>前置条件：已确认设备版本为13.0.120，已与现场对齐可升级到121质量版本；设备旁挂部署，升级窗口已确认。<\/li>\n<li>是否后台操作：是<\/li>\n<li>操作步骤：\n<ol>\n<li>【高危操作】（推荐）升级至AC13.0.121版本，为根治方案。<br>前置条件：确认维护窗口，备份当前配置。<\/li>\n<li>通过SSU上传升级检测包，检查磁盘空间，不足则后台清理。<\/li>\n<li>通过SSU上传并安装AC13.0.121.001 Build20260324升级包（AC13.0.121(20260324).ssu）。<\/li>\n<li>使用BBC时，在【分支版本中心】上传分支镜像，执行 <code>/sf/etc/init.d/template_manager restart<\/code> 触发模板自动分裂（模板需处于“正常”状态）。<\/li>\n<li>模板未自动分裂时，在BBC【策略管理】提升13.0.120版本副本为独立模板，下发配置，再次执行重启命令。<\/li>\n<li>确认版本信息显示为AC13.0.121.001 Build20260324。<ul>\n<li>影响说明：【高危操作】升级过程中设备会重启，业务中断，需在维护窗口操作。升级后13.0.121版本不再支持对接BA4.0.29以下版本，外置BA需BA4.0.121以上版本。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<ol start=\"2\">\n<li>（备选方案）无法升级时，安装临时补丁KB-AC-20260116-828。<br>通过SSU安装该补丁包。<ul>\n<li>影响说明：补丁安装不重启设备，不重启其他服务，无业务影响。<\/li>\n<\/ul><\/li>\n<\/ol>\n\n<\/li>\n<li>验证方案：升级后版本为AC13.0.121.001 Build20260324；夜间与凌晨无告警；无宕机后关闭工单。<\/li>\n<li>操作影响：升级后13.0.121版本不再支持对接BA4.0.29以下版本，外置BA需BA4.0.121以上版本；升级过程涉及BBC集中管理平台模板分裂，需关注模板状态。补丁方案无影响。<\/li>\n<\/ul>\n<\/div>\n<div class=\"mceNonEditable\"><h3>补充说明<\/h3> \n<div class=\"\" style=\"min-height: 40px;\">\n<p>该问题在AC 13.0.121版本中已修复，建议升级至该版本。若LDAP域组织规模极大（超过百万），建议评估同步策略，避免单次同步IO过高。<\/p>\n<\/div>\n<\/div>\n<\/div>","img":0}]</script>
 <script>
 var DATA = JSON.parse(document.getElementById('sfc-data').textContent);
-var st = { q: '', page: 1, size: 20, all: false };
+DATA.forEach(function(d,i){ d._i = i; d._s = (d.t+' '+d.p+' '+d.m+' '+d.id).toLowerCase(); });
+
+var st = { q: '', page: 1, size: 20, all: false, lazy: true };
+var CARD_CACHE = {}, CARD_N = 0, TOC_MAX = 400;
+var IMG_OBS = null, BODY_OBS = null, searchTimer = null;
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function hl(s){
@@ -77,33 +85,107 @@ function hl(s){
   if(!st.q) return t;
   try{ return t.replace(new RegExp('('+st.q.replace(/[.*+?^${}()|[]\]/g,'\$&')+')','gi'),'<mark>$1</mark>') }catch(e){ return t }
 }
+/* 搜索索引在加载时一次性算好，避免每次输入都重新拼接/转小写 */
 function filtered(){
   if(!st.q) return DATA;
   var q = st.q.toLowerCase();
-  return DATA.filter(function(d){
-    return (d.t+' '+d.p+' '+d.m+' '+d.id).toLowerCase().indexOf(q) >= 0;
-  });
+  return DATA.filter(function(d){ return d._s.indexOf(q) >= 0 });
 }
 function pages(){ return st.all ? 1 : Math.max(1, Math.ceil(filtered().length / st.size)) }
 function metaOf(d){
-  return [d.p?'产品线：'+esc(d.p):'', d.m?'模块：'+esc(d.m):'', d.v?'适用版本：'+esc(d.v):'',
-          d.s?'架构：'+esc(d.s):'', d.u?'更新：'+esc(d.u):''].filter(Boolean).join(' ｜ ');
+  var ml = [d.p?'产品线：'+esc(d.p):'', d.m?'模块：'+esc(d.m):'', d.v?'适用版本：'+esc(d.v):'',
+            d.s?'架构：'+esc(d.s):'', d.u?'更新：'+esc(d.u):''].filter(Boolean).join(' ｜ ');
+  return (ml ? '<div>' + ml + '</div>' : '') +
+    '<div>案例ID：' + esc(d.id) +
+    (d.url ? ' ｜ <a href="' + esc(d.url) + '" target="_blank" rel="noopener">在官网打开 ↗</a>' : '') +
+    '</div>';
 }
-function cardOf(d, idx){
-  var ml = metaOf(d);
-  return '<article class="case" id="case-'+(idx+1)+'">'+
-    '<h2>'+(idx+1)+'. '+hl(d.t)+'</h2>'+
-    '<div class="meta">'+(ml?'<div>'+ml+'</div>':'')+
-      '<div>案例ID：'+esc(d.id)+(d.url?' ｜ <a href="'+esc(d.url)+'" target="_blank" rel="noopener">在官网打开 ↗</a>':'')+'</div>'+
-    '</div>'+
-    '<div class="body">'+d.h+'</div></article>';
-}
-function lazyLoad(){
-  var imgs = document.querySelectorAll('#list img[data-src]');
+
+/* ------------------------------------------------------------------
+ * 性能：正文与图片都不再一次性塞进 DOM
+ *  - 卡片骨架（标题+元信息）先渲染，正文等卡片接近视口才注入
+ *  - 图片等接近视口才设置 src，避免上百张图同时解码
+ *  - 注入按帧分批，避免一次 innerHTML 阻塞主线程
+ * ------------------------------------------------------------------ */
+function observeImages(root){
+  var imgs = root.querySelectorAll('img[data-src]');
   for(var i=0;i<imgs.length;i++){
-    var im = imgs[i];
-    im.src = im.getAttribute('data-src');
-    im.removeAttribute('data-src');
+    if(IMG_OBS){ IMG_OBS.observe(imgs[i]); }
+    else { var s = imgs[i].getAttribute('data-src'); if(s){ imgs[i].src = s; imgs[i].removeAttribute('data-src'); } }
+  }
+}
+function fillBody(node, d){
+  if(!node || node._filled || !d) return;
+  node._filled = true;
+  node.innerHTML = d.h;
+  observeImages(node);
+}
+function injectChunked(arts, start, step){
+  if(!arts || start >= arts.length) return;
+  var end = Math.min(arts.length, start + (step || 4));
+  for(var i=start;i<end;i++){
+    var a = arts[i];
+    if(a && a._body) fillBody(a._body, a._d);
+  }
+  if(end < arts.length) requestAnimationFrame(function(){ injectChunked(arts, end, step) });
+}
+function initObservers(){
+  if(typeof IntersectionObserver === 'undefined') return;
+  IMG_OBS = new IntersectionObserver(function(es){
+    for(var i=0;i<es.length;i++){
+      var e = es[i];
+      if(!e.isIntersecting) continue;
+      var im = e.target, src = im.getAttribute('data-src');
+      if(src){ im.src = src; im.removeAttribute('data-src'); }
+      IMG_OBS.unobserve(im);
+    }
+  }, { rootMargin: '600px 0px' });
+  BODY_OBS = new IntersectionObserver(function(es){
+    var hit = [];
+    for(var i=0;i<es.length;i++){
+      var e = es[i];
+      if(!e.isIntersecting) continue;
+      BODY_OBS.unobserve(e.target);
+      hit.push(e.target);
+    }
+    if(hit.length) injectChunked(hit, 0, 4);
+  }, { rootMargin: '700px 0px' });
+}
+function clearCardCache(){
+  for(var k in CARD_CACHE){
+    var o = CARD_CACHE[k];
+    if(o && BODY_OBS){ try{ BODY_OBS.unobserve(o) }catch(e){} }
+  }
+  CARD_CACHE = {}; CARD_N = 0;
+}
+function newCard(d){
+  var el = document.createElement('article');
+  el.className = 'case';
+  el.innerHTML = '<h2></h2><div class="meta"></div><div class="body"></div>';
+  el._h2 = el.children[0]; el._meta = el.children[1]; el._body = el.children[2];
+  el._d = d;
+  el._meta.innerHTML = metaOf(d);
+  return el;
+}
+/* 卡片 DOM 复用：翻回上一页时直接搬回来，不重新解析正文、图片也不闪 */
+function cardOf(d, idx){
+  var el = CARD_CACHE[d._i];
+  if(!el){
+    el = newCard(d);
+    if(CARD_N > 260) clearCardCache();
+    CARD_CACHE[d._i] = el; CARD_N++;
+  }
+  el.id = 'case-' + (idx + 1);
+  el._h2.innerHTML = (idx + 1) + '. ' + hl(d.t);
+  return el;
+}
+function setupCards(box){
+  var arr = Array.prototype.slice.call(box.querySelectorAll('article.case'));
+  if(!arr.length) return;
+  if(!st.lazy || !BODY_OBS){ injectChunked(arr, 0, 20); return; }
+  for(var i=0;i<arr.length;i++){
+    var a = arr[i];
+    if(a._body && !a._body._filled) BODY_OBS.observe(a);
   }
 }
 function render(){
@@ -116,19 +198,29 @@ function render(){
 
   var box = document.getElementById('list');
   var toc = document.getElementById('toc');
+
   if(!slice.length){
+    box.textContent = '';
     box.innerHTML = '<div class="empty">没有匹配的案例</div>';
     toc.style.display = 'none';
   } else {
-    toc.style.display = '';
-    var html = [];
-    for(var i=0;i<slice.length;i++) html.push(cardOf(slice[i], start+i));
-    box.innerHTML = html.join('');
+    var frag = document.createDocumentFragment();
     var tl = [];
-    for(var j=0;j<slice.length;j++) tl.push('<li><a href="#case-'+(start+j+1)+'">'+(start+j+1)+'. '+esc(slice[j].t.slice(0,44))+'</a></li>');
-    toc.innerHTML = '<h3>本页目录'+(st.all?'（全部）':'（第 '+(start+1)+'-'+end+' 条，共 '+all.length+' 条）')+'</h3><ol>'+tl.join('')+'</ol>';
-    lazyLoad();
+    for(var i=0;i<slice.length;i++){
+      var d = slice[i], no = start + i + 1;
+      frag.appendChild(cardOf(d, start + i));
+      if(i < TOC_MAX) tl.push('<li><a href="#case-' + no + '">' + no + '. ' + esc(d.t.slice(0,44)) + '</a></li>');
+    }
+    box.textContent = '';
+    box.appendChild(frag);
+    toc.style.display = '';
+    toc.innerHTML = '<h3>本页目录' +
+      (st.all ? '（全部）' : '（第 ' + (start+1) + '-' + end + ' 条，共 ' + all.length + ' 条）') +
+      '</h3><ol>' + tl.join('') + '</ol>' +
+      (slice.length > TOC_MAX ? '<div class="tocmore">… 目录仅列出前 ' + TOC_MAX + ' 条，共 ' + slice.length + ' 条</div>' : '');
+    setupCards(box);
   }
+
   document.getElementById('info').textContent =
     (all.length === 0 ? '共 0 条'
       : st.all ? '全部 ' + all.length + ' 条'
@@ -139,23 +231,39 @@ function render(){
   document.getElementById('b-prev').disabled  = st.all || st.page <= 1;
   document.getElementById('b-next').disabled  = last;
   document.getElementById('b-last').disabled  = last;
+  syncAllBtn();
   try { window.scrollTo(0, 0); } catch (e) {}
 }
-function go(p){ st.page = p; render() }
-function onSearch(v){ st.q = (v||'').trim(); st.page = 1; st.all = false; render() }
-function setSize(v){ st.size = parseInt(v,10)||20; st.page = 1; st.all = false; render() }
-function expandAll(){
-  st.all = true;
+function syncAllBtn(){
   var b = document.getElementById('b-all');
-  b.textContent = '已展开全部，可 Ctrl+P 打印';
-  b.disabled = true;
-  render();
+  if(!b) return;
+  b.textContent = st.all ? '⤡ 收起（回到分页）' : '展开全部（便于打印）';
 }
+function go(p){ st.page = p; render() }
+function onSearch(v){
+  st.q = (v||'').trim(); st.page = 1; st.all = false; st.lazy = true;
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(render, 220); /* 输入防抖，避免逐字重建 DOM */
+}
+function setSize(v){ st.size = parseInt(v,10)||20; st.page = 1; st.all = false; st.lazy = true; render() }
+function toggleAll(){
+  if(st.all){ st.all = false; st.lazy = true; render(); return; }
+  var n = filtered().length;
+  if(n > 600 && !confirm('共 ' + n + ' 条，展开全部将一次性渲染所有正文，可能较慢。\n建议仅在小批量或打印前使用。是否继续？')) return;
+  st.all = true; st.lazy = false; render();
+}
+/* 直接 Ctrl+P 时，把当前页尚未注入的正文补齐，避免打印出空白 */
+window.addEventListener('beforeprint', function(){
+  if(!st.lazy) return;
+  var arr = document.querySelectorAll('#list article.case');
+  for(var i=0;i<arr.length;i++) fillBody(arr[i]._body, arr[i]._d);
+});
 document.addEventListener('keydown', function(e){
   if(e.target && e.target.tagName === 'INPUT') return;
   if(e.key === 'ArrowRight' && !document.getElementById('b-next').disabled) go(st.page+1);
   if(e.key === 'ArrowLeft'  && !document.getElementById('b-prev').disabled) go(st.page-1);
 });
+initObservers();
 render();
 </script>
 </body></html>

@@ -2,7 +2,7 @@
 // @name         深信服案例库爬虫 (support.sangfor.com.cn)
 // @name:zh-CN   深信服案例库爬虫
 // @namespace    https://github.com/scriptscat
-// @version      1.2.0
+// @version      1.3.0
 // @description  批量抓取 support.sangfor.com.cn 案例库：支持按产品线/模块/版本/关键词筛选，并发翻页抓取列表与正文，还原「问题描述/根因/解决方案」章节结构与图片，可导出 单文件HTML / Markdown / CSV / JSON。基于浏览器登录态运行。
 // @author       yimu56
 // @license      MIT
@@ -64,6 +64,7 @@
     onlyRecent: '', // '7d' | '30d' | '90d' | '' 按 update_time 过滤
     imageMode: 'link', // 'link' = 保留外链 | 'embed' = 下载内嵌为 base64（可离线）
     htmlPartSize: 0, // HTML 分卷：每个文件多少条，0 = 单文件（内部已分页，不会卡）
+    startMinimized: true, // 面板启动时默认收起为最小化（可在面板里关闭）
   };
 
   let cfg = Object.assign({}, defaults);
@@ -543,7 +544,9 @@ nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:26px}
 nav.toc li{font-size:13px;break-inside:avoid;margin:2px 0}
 nav.toc a{color:var(--ac);text-decoration:none}
 nav.toc a:hover{text-decoration:underline}
-article.case{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:18px 24px;margin-bottom:14px}
+nav.toc .tocmore{color:var(--mu);font-size:12px;margin-top:6px;padding-left:2px}
+article.case{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:18px 24px;margin-bottom:14px;
+  content-visibility:auto;contain-intrinsic-size:auto 480px}
 article.case h2{font-size:17px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--ac);line-height:1.5}
 .meta{color:var(--mu);font-size:12.5px;margin-bottom:12px;padding:8px 12px;background:#f8f9fb;border-radius:6px}
 .meta a{color:var(--ac);text-decoration:none}
@@ -556,7 +559,9 @@ article.case h2{font-size:17px;margin:0 0 10px;padding-bottom:8px;border-bottom:
 .body img{max-width:100%;border:1px solid var(--bd);border-radius:6px;margin:6px 0;background:#fafbfc;min-height:24px}
 mark{background:#ffe9a8;padding:0 2px;border-radius:2px}
 .empty{text-align:center;color:var(--mu);padding:60px 0}
-@media print{.bar,nav.toc{display:none}body{background:#fff}article.case{break-inside:avoid;border:none;padding:0 0 12px}}
+@media print{.bar,nav.toc{display:none}body{background:#fff}
+  article.case{break-inside:avoid;border:none;padding:0 0 12px;content-visibility:visible}
+  .body img{page-break-inside:avoid}}
 </style></head>
 <body>
 <header>
@@ -575,7 +580,7 @@ mark{background:#ffe9a8;padding:0 2px;border-radius:2px}
     <option value="50">50 条/页</option>
     <option value="100">100 条/页</option>
   </select>
-  <button onclick="expandAll()" id="b-all">展开全部（便于打印）</button>
+  <button onclick="toggleAll()" id="b-all">展开全部（便于打印）</button>
   <span class="info" id="info"></span>
 </div>
 <main>
@@ -585,7 +590,11 @@ mark{background:#ffe9a8;padding:0 2px;border-radius:2px}
 <script id="sfc-data" type="application/json">${dataJson}</script>
 <script>
 var DATA = JSON.parse(document.getElementById('sfc-data').textContent);
-var st = { q: '', page: 1, size: ${pageSize}, all: false };
+DATA.forEach(function(d,i){ d._i = i; d._s = (d.t+' '+d.p+' '+d.m+' '+d.id).toLowerCase(); });
+
+var st = { q: '', page: 1, size: ${pageSize}, all: false, lazy: true };
+var CARD_CACHE = {}, CARD_N = 0, TOC_MAX = 400;
+var IMG_OBS = null, BODY_OBS = null, searchTimer = null;
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function hl(s){
@@ -593,33 +602,107 @@ function hl(s){
   if(!st.q) return t;
   try{ return t.replace(new RegExp('('+st.q.replace(/[.*+?^\${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>') }catch(e){ return t }
 }
+/* 搜索索引在加载时一次性算好，避免每次输入都重新拼接/转小写 */
 function filtered(){
   if(!st.q) return DATA;
   var q = st.q.toLowerCase();
-  return DATA.filter(function(d){
-    return (d.t+' '+d.p+' '+d.m+' '+d.id).toLowerCase().indexOf(q) >= 0;
-  });
+  return DATA.filter(function(d){ return d._s.indexOf(q) >= 0 });
 }
 function pages(){ return st.all ? 1 : Math.max(1, Math.ceil(filtered().length / st.size)) }
 function metaOf(d){
-  return [d.p?'产品线：'+esc(d.p):'', d.m?'模块：'+esc(d.m):'', d.v?'适用版本：'+esc(d.v):'',
-          d.s?'架构：'+esc(d.s):'', d.u?'更新：'+esc(d.u):''].filter(Boolean).join(' ｜ ');
+  var ml = [d.p?'产品线：'+esc(d.p):'', d.m?'模块：'+esc(d.m):'', d.v?'适用版本：'+esc(d.v):'',
+            d.s?'架构：'+esc(d.s):'', d.u?'更新：'+esc(d.u):''].filter(Boolean).join(' ｜ ');
+  return (ml ? '<div>' + ml + '</div>' : '') +
+    '<div>案例ID：' + esc(d.id) +
+    (d.url ? ' ｜ <a href="' + esc(d.url) + '" target="_blank" rel="noopener">在官网打开 ↗</a>' : '') +
+    '</div>';
 }
-function cardOf(d, idx){
-  var ml = metaOf(d);
-  return '<article class="case" id="case-'+(idx+1)+'">'+
-    '<h2>'+(idx+1)+'. '+hl(d.t)+'</h2>'+
-    '<div class="meta">'+(ml?'<div>'+ml+'</div>':'')+
-      '<div>案例ID：'+esc(d.id)+(d.url?' ｜ <a href="'+esc(d.url)+'" target="_blank" rel="noopener">在官网打开 ↗</a>':'')+'</div>'+
-    '</div>'+
-    '<div class="body">'+d.h+'</div></article>';
-}
-function lazyLoad(){
-  var imgs = document.querySelectorAll('#list img[data-src]');
+
+/* ------------------------------------------------------------------
+ * 性能：正文与图片都不再一次性塞进 DOM
+ *  - 卡片骨架（标题+元信息）先渲染，正文等卡片接近视口才注入
+ *  - 图片等接近视口才设置 src，避免上百张图同时解码
+ *  - 注入按帧分批，避免一次 innerHTML 阻塞主线程
+ * ------------------------------------------------------------------ */
+function observeImages(root){
+  var imgs = root.querySelectorAll('img[data-src]');
   for(var i=0;i<imgs.length;i++){
-    var im = imgs[i];
-    im.src = im.getAttribute('data-src');
-    im.removeAttribute('data-src');
+    if(IMG_OBS){ IMG_OBS.observe(imgs[i]); }
+    else { var s = imgs[i].getAttribute('data-src'); if(s){ imgs[i].src = s; imgs[i].removeAttribute('data-src'); } }
+  }
+}
+function fillBody(node, d){
+  if(!node || node._filled || !d) return;
+  node._filled = true;
+  node.innerHTML = d.h;
+  observeImages(node);
+}
+function injectChunked(arts, start, step){
+  if(!arts || start >= arts.length) return;
+  var end = Math.min(arts.length, start + (step || 4));
+  for(var i=start;i<end;i++){
+    var a = arts[i];
+    if(a && a._body) fillBody(a._body, a._d);
+  }
+  if(end < arts.length) requestAnimationFrame(function(){ injectChunked(arts, end, step) });
+}
+function initObservers(){
+  if(typeof IntersectionObserver === 'undefined') return;
+  IMG_OBS = new IntersectionObserver(function(es){
+    for(var i=0;i<es.length;i++){
+      var e = es[i];
+      if(!e.isIntersecting) continue;
+      var im = e.target, src = im.getAttribute('data-src');
+      if(src){ im.src = src; im.removeAttribute('data-src'); }
+      IMG_OBS.unobserve(im);
+    }
+  }, { rootMargin: '600px 0px' });
+  BODY_OBS = new IntersectionObserver(function(es){
+    var hit = [];
+    for(var i=0;i<es.length;i++){
+      var e = es[i];
+      if(!e.isIntersecting) continue;
+      BODY_OBS.unobserve(e.target);
+      hit.push(e.target);
+    }
+    if(hit.length) injectChunked(hit, 0, 4);
+  }, { rootMargin: '700px 0px' });
+}
+function clearCardCache(){
+  for(var k in CARD_CACHE){
+    var o = CARD_CACHE[k];
+    if(o && BODY_OBS){ try{ BODY_OBS.unobserve(o) }catch(e){} }
+  }
+  CARD_CACHE = {}; CARD_N = 0;
+}
+function newCard(d){
+  var el = document.createElement('article');
+  el.className = 'case';
+  el.innerHTML = '<h2></h2><div class="meta"></div><div class="body"></div>';
+  el._h2 = el.children[0]; el._meta = el.children[1]; el._body = el.children[2];
+  el._d = d;
+  el._meta.innerHTML = metaOf(d);
+  return el;
+}
+/* 卡片 DOM 复用：翻回上一页时直接搬回来，不重新解析正文、图片也不闪 */
+function cardOf(d, idx){
+  var el = CARD_CACHE[d._i];
+  if(!el){
+    el = newCard(d);
+    if(CARD_N > 260) clearCardCache();
+    CARD_CACHE[d._i] = el; CARD_N++;
+  }
+  el.id = 'case-' + (idx + 1);
+  el._h2.innerHTML = (idx + 1) + '. ' + hl(d.t);
+  return el;
+}
+function setupCards(box){
+  var arr = Array.prototype.slice.call(box.querySelectorAll('article.case'));
+  if(!arr.length) return;
+  if(!st.lazy || !BODY_OBS){ injectChunked(arr, 0, 20); return; }
+  for(var i=0;i<arr.length;i++){
+    var a = arr[i];
+    if(a._body && !a._body._filled) BODY_OBS.observe(a);
   }
 }
 function render(){
@@ -632,19 +715,29 @@ function render(){
 
   var box = document.getElementById('list');
   var toc = document.getElementById('toc');
+
   if(!slice.length){
+    box.textContent = '';
     box.innerHTML = '<div class="empty">没有匹配的案例</div>';
     toc.style.display = 'none';
   } else {
-    toc.style.display = '';
-    var html = [];
-    for(var i=0;i<slice.length;i++) html.push(cardOf(slice[i], start+i));
-    box.innerHTML = html.join('');
+    var frag = document.createDocumentFragment();
     var tl = [];
-    for(var j=0;j<slice.length;j++) tl.push('<li><a href="#case-'+(start+j+1)+'">'+(start+j+1)+'. '+esc(slice[j].t.slice(0,44))+'</a></li>');
-    toc.innerHTML = '<h3>本页目录'+(st.all?'（全部）':'（第 '+(start+1)+'-'+end+' 条，共 '+all.length+' 条）')+'</h3><ol>'+tl.join('')+'</ol>';
-    lazyLoad();
+    for(var i=0;i<slice.length;i++){
+      var d = slice[i], no = start + i + 1;
+      frag.appendChild(cardOf(d, start + i));
+      if(i < TOC_MAX) tl.push('<li><a href="#case-' + no + '">' + no + '. ' + esc(d.t.slice(0,44)) + '</a></li>');
+    }
+    box.textContent = '';
+    box.appendChild(frag);
+    toc.style.display = '';
+    toc.innerHTML = '<h3>本页目录' +
+      (st.all ? '（全部）' : '（第 ' + (start+1) + '-' + end + ' 条，共 ' + all.length + ' 条）') +
+      '</h3><ol>' + tl.join('') + '</ol>' +
+      (slice.length > TOC_MAX ? '<div class="tocmore">… 目录仅列出前 ' + TOC_MAX + ' 条，共 ' + slice.length + ' 条</div>' : '');
+    setupCards(box);
   }
+
   document.getElementById('info').textContent =
     (all.length === 0 ? '共 0 条'
       : st.all ? '全部 ' + all.length + ' 条'
@@ -655,23 +748,39 @@ function render(){
   document.getElementById('b-prev').disabled  = st.all || st.page <= 1;
   document.getElementById('b-next').disabled  = last;
   document.getElementById('b-last').disabled  = last;
+  syncAllBtn();
   try { window.scrollTo(0, 0); } catch (e) {}
 }
-function go(p){ st.page = p; render() }
-function onSearch(v){ st.q = (v||'').trim(); st.page = 1; st.all = false; render() }
-function setSize(v){ st.size = parseInt(v,10)||20; st.page = 1; st.all = false; render() }
-function expandAll(){
-  st.all = true;
+function syncAllBtn(){
   var b = document.getElementById('b-all');
-  b.textContent = '已展开全部，可 Ctrl+P 打印';
-  b.disabled = true;
-  render();
+  if(!b) return;
+  b.textContent = st.all ? '⤡ 收起（回到分页）' : '展开全部（便于打印）';
 }
+function go(p){ st.page = p; render() }
+function onSearch(v){
+  st.q = (v||'').trim(); st.page = 1; st.all = false; st.lazy = true;
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(render, 220); /* 输入防抖，避免逐字重建 DOM */
+}
+function setSize(v){ st.size = parseInt(v,10)||20; st.page = 1; st.all = false; st.lazy = true; render() }
+function toggleAll(){
+  if(st.all){ st.all = false; st.lazy = true; render(); return; }
+  var n = filtered().length;
+  if(n > 600 && !confirm('共 ' + n + ' 条，展开全部将一次性渲染所有正文，可能较慢。\\n建议仅在小批量或打印前使用。是否继续？')) return;
+  st.all = true; st.lazy = false; render();
+}
+/* 直接 Ctrl+P 时，把当前页尚未注入的正文补齐，避免打印出空白 */
+window.addEventListener('beforeprint', function(){
+  if(!st.lazy) return;
+  var arr = document.querySelectorAll('#list article.case');
+  for(var i=0;i<arr.length;i++) fillBody(arr[i]._body, arr[i]._d);
+});
 document.addEventListener('keydown', function(e){
   if(e.target && e.target.tagName === 'INPUT') return;
   if(e.key === 'ArrowRight' && !document.getElementById('b-next').disabled) go(st.page+1);
   if(e.key === 'ArrowLeft'  && !document.getElementById('b-prev').disabled) go(st.page-1);
 });
+initObservers();
 render();
 </script>
 </body></html>`;
@@ -1599,6 +1708,50 @@ render();
 
   let panel, logBox, progBar, progText, statText;
 
+  /* ---------------------------------------------------- 面板偏好（持久化） */
+  // 独立于断点缓存，避免「清空断点缓存」把界面偏好一起清掉
+  const K_UI = 'sfCaseCrawler.ui';
+
+  const uiStore = {
+    read() {
+      try {
+        const s = typeof GM_getValue === 'function' ? GM_getValue(K_UI, '') : localStorage.getItem(K_UI);
+        if (!s) return null;
+        return typeof s === 'string' ? JSON.parse(s) : s;
+      } catch (e) {
+        return null;
+      }
+    },
+    write(obj) {
+      try {
+        const s = JSON.stringify(obj);
+        if (typeof GM_setValue === 'function') GM_setValue(K_UI, s);
+        else localStorage.setItem(K_UI, s);
+      } catch (e) {}
+    },
+  };
+
+  function restoreUI() {
+    const u = uiStore.read();
+    if (u && typeof u.startMinimized === 'boolean') cfg.startMinimized = u.startMinimized;
+  }
+
+  function saveUI() {
+    uiStore.write({ startMinimized: !!cfg.startMinimized });
+  }
+
+  // 收起 / 展开面板：手动切换只影响本次会话，下次启动仍由「启动时最小化」决定
+  function setMinimized(v) {
+    if (!panel) return;
+    panel.classList.toggle('sfc-min', !!v);
+    const b = document.getElementById('sfc-btn-min');
+    if (b) {
+      b.textContent = v ? '□' : '—';
+      b.title = v ? '展开面板' : '收起面板';
+    }
+    updateProgress();
+  }
+
   function log(msg, level) {
     if (!logBox) return;
     const d = document.createElement('div');
@@ -1629,6 +1782,15 @@ render();
     progBar.style.width = pct.toFixed(1) + '%';
     progText.textContent = pct.toFixed(1) + '%';
     statText.textContent = `列表 ${state.donePages}/${state.totalPages || '-'} 页 · 案例 ${state.listRows.length} 条 · 正文 ${state.detailDone}`;
+    // 面板收起时在标题栏显示一行进度，避免"最小化后什么都看不到"
+    const ms = document.getElementById('sfc-minstat');
+    if (ms) {
+      const min = panel && panel.classList.contains('sfc-min');
+      if (!min) ms.textContent = '';
+      else if (state.running) ms.textContent = `${pct.toFixed(0)}% · ${state.listRows.length} 条`;
+      else if (state.listRows.length) ms.textContent = `已抓 ${state.listRows.length} 条，可导出`;
+      else ms.textContent = '';
+    }
   }
 
   function setRunningUI(running) {
@@ -1670,14 +1832,15 @@ render();
     const head = el('div', { class: 'sfc-head', id: 'sfc-head' }, [
       el('span', { class: 'sfc-title', text: '深信服案例库爬虫' }),
       el('span', { class: 'sfc-spacer' }),
+      el('span', { class: 'sfc-minstat', id: 'sfc-minstat' }),
       el('button', {
         class: 'sfc-icon',
+        id: 'sfc-btn-min',
         title: '收起/展开',
         text: '—',
         onclick: (e) => {
           e.stopPropagation();
-          panel.classList.toggle('sfc-min');
-          e.target.textContent = panel.classList.contains('sfc-min') ? '□' : '—';
+          setMinimized(!panel.classList.contains('sfc-min'));
         },
       }),
       el('button', {
@@ -1837,6 +2000,17 @@ render();
       ])
     );
     body.appendChild(row('断点续跑', chkResume, el('span', { class: 'sfc-hint', text: '中断后再次开始可从断点继续' })));
+
+    // 下次启动是否保持收起状态（取消勾选＝每次打开面板都是展开的）
+    const chkStartMin = el('input', { type: 'checkbox', checked: !!cfg.startMinimized });
+    chkStartMin.addEventListener('change', () => {
+      cfg.startMinimized = chkStartMin.checked;
+      saveUI();
+      log(chkStartMin.checked ? '已设置：面板启动时默认最小化' : '已设置：面板启动时默认展开');
+    });
+    body.appendChild(
+      row('启动方式', chkStartMin, el('span', { class: 'sfc-hint', text: '启动时默认收起为最小化' }))
+    );
     body.appendChild(
       el('div', { class: 'sfc-taskkey', id: 'sfc-taskkey' })
     );
@@ -1930,6 +2104,9 @@ render();
     panel.appendChild(head);
     panel.appendChild(body);
     document.body.appendChild(panel);
+
+    // 启动默认最小化（可在面板里取消勾选）
+    setMinimized(!!cfg.startMinimized);
 
     // 拖动
     (function draggable() {
@@ -2085,6 +2262,7 @@ render();
 .sfc-head{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#252a36;cursor:move;user-select:none;flex:0 0 auto}
 .sfc-title{font-weight:600;font-size:13px;color:#7cc0ff}
 .sfc-spacer{flex:1}
+.sfc-minstat{font-size:11px;color:#7cc0ff;opacity:.85;font-variant-numeric:tabular-nums;margin-right:4px}
 .sfc-icon{background:transparent;border:none;color:#9aa3b2;font-size:13px;cursor:pointer;padding:0 4px;line-height:1}
 .sfc-icon:hover{color:#fff}
 .sfc-body{padding:10px 12px 12px;overflow:auto;flex:1 1 auto}
@@ -2141,11 +2319,18 @@ render();
   function boot() {
     if (document.getElementById('sfc-panel')) return;
     addStyle();
+    restoreUI();
     buildPanel();
     if (typeof GM_registerMenuCommand === 'function') {
       GM_registerMenuCommand('打开/关闭 案例爬虫面板', () => {
         const p = document.getElementById('sfc-panel');
-        if (p) p.style.display = p.style.display === 'none' ? '' : 'none';
+        if (!p) return;
+        if (p.style.display === 'none') {
+          p.style.display = '';
+          setMinimized(false); // 从菜单重新打开时直接展开，省一次点击
+        } else {
+          p.style.display = 'none';
+        }
       });
       GM_registerMenuCommand('清空断点缓存', clearAllCache);
     }
